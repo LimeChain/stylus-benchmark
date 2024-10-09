@@ -1,0 +1,29 @@
+set dotenv-load
+
+deploy:
+  cargo stylus deploy
+    -e ${RPC_URL} \
+    --private-key ${PRIVATE_KEY} \
+    --no-verify
+
+# Run the verification algorithm on-chain
+verify message signature_bytes public_key:
+  cast send \
+  --gas-limit 1000000 \
+  --rpc-url ${RPC_URL} \
+  --private-key ${PRIVATE_KEY} \
+  ${CONTRACT_ADDRESS} \
+  "verify(uint8[],uint8[],bytes32)" \
+  {{ message }} \
+  {{ signature_bytes }} \
+  {{ public_key }}
+
+verify_existing:
+  just verify \
+    "[176,216,189,253,159,77,16,35,218,232,54,178,228,29,165,1,157,32,198,9,101,220,64,148,62,44,16,242,173,78,228,154,176,216,189,253,159,77,16,35,218,232,54,178,228,29,165,1,157,32,198,9,101,220]" \
+    "[166,22,28,149,253,78,50,55,183,221,18,204,48,82,170,166,147,130,81,14,203,91,137,194,251,235,139,110,251,120,38,107,129,22,10,242,132,34,53,160,37,127,193,211,233,104,194,193,201,245,111,17,125,163,24,110,255,202,237,162,86,195,138,13]" \
+    "0x06cf14cfae0ff9fe7fdf773202029a3e8976465c8919f4840d1c3c77c8162435"
+
+abi:
+  # cast abi --rpc-url ${RPC_URL} ${CONTRACT_ADDRESS}
+  cargo stylus export-abi --json | tail -n +4 | jq > ./target/abi.json

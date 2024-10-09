@@ -1,0 +1,26 @@
+set dotenv-load
+
+build:
+  forge build
+
+deploy:
+  just run Deploy
+
+mint:
+  just run Mint
+
+transfer:
+  just run Transfer
+
+run SCRIPT:
+  forge script script/Banica.s.sol:{{ SCRIPT }} \
+    --rpc-url ${RPC_URL} \
+    --chain ${CHAIN_ID} \
+    --private-key ${PRIVATE_KEY} \
+    --broadcast
+
+get_nz:
+  curl \
+    -X POST \
+    --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":1}' \
+    ${RPC_URL}

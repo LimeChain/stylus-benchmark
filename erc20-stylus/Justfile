@@ -1,0 +1,29 @@
+set dotenv-load
+
+deploy:
+  cargo stylus deploy
+    -e ${RPC_URL} \
+    --private-key ${PRIVATE_KEY} \
+    --no-verify
+
+mint:
+  cast send \
+    --rpc-url ${RPC_URL} \
+    --private-key ${PRIVATE_KEY} \
+    ${CONTRACT_ADDRESS} \
+    "mint(uint256) ()" \
+    10
+
+# NOTE: direct burn, no direct alternative in provided Solidity version
+# burn:
+#   cast send --rpc-url ${RPC_URL} --private-key ${PRIVATE_KEY} ${CONTRACT_ADDRESS} "burn(uint256) ()" 1
+
+# Transfer to address 0x1
+transfer:
+  cast send \
+    --rpc-url ${RPC_URL} \
+    --private-key ${PRIVATE_KEY} \
+    ${CONTRACT_ADDRESS} \
+    "transfer(address, uint256) ()" \
+    0x0000000000000000000000000000000000000001 \
+    1

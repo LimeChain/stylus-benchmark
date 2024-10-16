@@ -15,16 +15,16 @@ Each contract project directory (`{erc20,ed25519}-{stylus,solidity}`) contains a
 
 | Function | Stylus Gas | Solidity Gas |
 |----------|------------|--------------|
-| deploy   | [6366893][stylus-erc20-deploy] + [2983830][stylus-erc20-activation] | [1069722][solidity-erc20-deploy] |
-| mint     | [134364][stylus-erc20-mint] | [168658][solidity-erc20-mint] |
-| transfer | [128080][stylus-erc20-transfer] | [161665][solidity-erc20-transfer] |
+| deploy   | [6'366'893][stylus-erc20-deploy] + [2'983'830][stylus-erc20-activation] | [1'069'722][solidity-erc20-deploy] |
+| mint     | [134'364][stylus-erc20-mint] | [168'658][solidity-erc20-mint] |
+| transfer | [128'080][stylus-erc20-transfer] | [161'665][solidity-erc20-transfer] |
 
 > [!NOTE]
 > [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts) was used for the Solidity ERC20
 >
 > [this](https://github.com/OffchainLabs/stylus-erc20) was used for the Stylus ERC20
 
-[stylus-erc20-deploy]: https://arbiscan.io/tx/0x1b04d4232eca1dc0175b3fbe8bcd3f5ea6365a93bacccb9ac36b701ae18f04d2
+[stylus-erc20-deploy]: https://arbiscan.io/tx/0x9fce745a872d33357450c28679e03d6d534d254a13094a6750ccd88ab41b5bc8
 [stylus-erc20-activation]: https://arbiscan.io/tx/0x1b04d4232eca1dc0175b3fbe8bcd3f5ea6365a93bacccb9ac36b701ae18f04d2
 [stylus-erc20-mint]: https://arbiscan.io/tx/0x3513279c3902f98c066478c5d3b88f037c83169fce6fb034aa06c6d3cb0963fa
 [stylus-erc20-transfer]: https://arbiscan.io/tx/0xe199a340fb4feb2eeac925a26930aa91d0b505dabe30593dbf7ddefd1405867d
@@ -36,8 +36,8 @@ Each contract project directory (`{erc20,ed25519}-{stylus,solidity}`) contains a
 
 | Function | Stylus Gas | Solidity Gas |
 |----------|------------|--------------|
-| deploy   | [11435412][ed25519-stylus-deploy] + [3188872][ed25519-stylus-activation] | - |
-| verify   | [168714][ed25519-stylus-verify] | 184188 |
+| deploy   | [11'435'412][ed25519-stylus-deploy] + [3'188'872][ed25519-stylus-activation] | - |
+| verify   | [168'714][ed25519-stylus-verify] | 184'188 |
 
 [ed25519-stylus-deploy]: https://arbiscan.io/tx/0x9ef8b9c566c1cb5fe30bb58193707b0cc217c481fb65c1eaa65c60fa61db26e7
 [ed25519-stylus-activation]: https://arbiscan.io/tx/0xb1d4f93be6702e9f4fddbd49480a717ad8948396bb27d189ff624b97e14d54a9

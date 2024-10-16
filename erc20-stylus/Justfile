@@ -1,7 +1,7 @@
 set dotenv-load
 
 deploy:
-  cargo stylus deploy
+  cargo stylus deploy \
     -e ${RPC_URL} \
     --private-key ${PRIVATE_KEY} \
     --no-verify
@@ -27,3 +27,6 @@ transfer:
     "transfer(address, uint256) ()" \
     0x0000000000000000000000000000000000000001 \
     1
+
+abi:
+  cargo stylus export-abi --json | tail -n +4 | jq > ./target/abi.json

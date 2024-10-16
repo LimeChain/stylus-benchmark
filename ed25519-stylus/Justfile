@@ -1,7 +1,7 @@
 set dotenv-load
 
 deploy:
-  cargo stylus deploy
+  cargo stylus deploy \
     -e ${RPC_URL} \
     --private-key ${PRIVATE_KEY} \
     --no-verify
@@ -25,5 +25,4 @@ verify_existing:
     "0x06cf14cfae0ff9fe7fdf773202029a3e8976465c8919f4840d1c3c77c8162435"
 
 abi:
-  # cast abi --rpc-url ${RPC_URL} ${CONTRACT_ADDRESS}
   cargo stylus export-abi --json | tail -n +4 | jq > ./target/abi.json

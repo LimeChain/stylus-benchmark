@@ -21,3 +21,11 @@
 [submodule "ed25519-stylus/proxy/lib/openzeppelin-contracts"]
 	path = ed25519-stylus/proxy/lib/openzeppelin-contracts
 	url = https://github.com/openzeppelin/openzeppelin-contracts
+
+# ed25519-solidity
+[submodule "ed25519-solidity/lib/forge-std"]
+	path = ed25519-solidity/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "ed25519-solidity/lib/ed25519"]
+	path = ed25519-solidity/lib/ed25519
+	url = https://github.com/chengwenxi/Ed25519

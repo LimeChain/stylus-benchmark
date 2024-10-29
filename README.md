@@ -54,14 +54,14 @@ Each contract project directory (`{erc20,ed25519}-{stylus,solidity}`) contains a
 | Function  | Stylus L2 Gas | Solidity L2 Gas | Difference (L2) | % Difference |
 |-----------|---------------|-----------------|-----------------|--------------|
 | deploy    | [**3'934'896**][ed25519-stylus-deploy] + [**3'123'366**][ed25519-stylus-activation]  | [**2'814'629**][ed25519-solidity-deploy] | +1'120'267  | **39.8% more**  |
-| verify    | [**38'668**][ed25519-stylus-verify]    | [**904'435**][ed25519-solidity-verify]   | -865'767    | **95.7% less** |
+| verify    | [**225'427**][ed25519-stylus-verify]    | [**904'435**][ed25519-solidity-verify]   | -679'008    | **75% less** |
 
 <!-- 11'435'412 = 7'500'516 + **3'934'896** -->
 [ed25519-stylus-deploy]: https://arbiscan.io/tx/0x9ef8b9c566c1cb5fe30bb58193707b0cc217c481fb65c1eaa65c60fa61db26e7
 <!--  3'188'872 =    65'506 + **3'123'366** -->
 [ed25519-stylus-activation]: https://arbiscan.io/tx/0xb1d4f93be6702e9f4fddbd49480a717ad8948396bb27d189ff624b97e14d54a9
-<!--    168'714 =   130'046 +    **38'668** -->
-[ed25519-stylus-verify]: https://arbiscan.io/tx/0x09fd6c7f1704b6cd9512f81d8b0fe97fe48c106bef6789428db774337a9e8bde
+<!--    338'889 =   113'462 + **  225'427** -->
+[ed25519-stylus-verify]: https://arbiscan.io/tx/0x2c1a00e24f38dc206659fe6eee2a9eb0e0b0687b19ad1e5b80f93a59f887edb7
 
 <!--  6'585'440 = 3'770'811 + **2'814'629** -->
 [ed25519-solidity-deploy]: https://arbiscan.io/tx/0x064432ff0f253b005023f40120028b5770a076a4321d48e6a7f5b986a98a6157
@@ -83,7 +83,7 @@ This is somewhat expected, since ERC-20 contracts aren't computationally heavy (
 
 - For Ed25519 contracts:
   - Stylus deploy costs **~40% more gas** than Solidity...
-  - but for signature verification, Stylus is **~96% cheaper**
+  - but for signature verification, Stylus is **~75% cheaper**
 
 This is also expected and is the main takeaway from this benchmark - that Stylus is **lot** faster when doing heavy computational tasks.
 
@@ -91,6 +91,6 @@ This is also expected and is the main takeaway from this benchmark - that Stylus
 
 - Our Solidity Ed25519 verification costs [**904k gas**][ed25519-solidity-verify], but some have optimized it to ~**500k gas**.
 - [Using zk-SNARKs][zk-snark-discussion], it can go down to **300k gas** (and **still** require off-chain proving).
-- And still, it costs much more than Stylus's [**<40k gas**][ed25519-stylus-verify].
+- And still, it costs more than Stylus's [**225k gas**][ed25519-stylus-verify].
 
 [zk-snark-discussion]: https://ethresear.ch/t/verify-ed25519-signatures-cheaply-on-eth-using-zk-snarks/13139

@@ -76,13 +76,13 @@ Each contract project directory (`{erc20,ed25519}-{stylus,solidity}`) contains a
 ## Conclusion
 
 - For ERC-20 contracts:
-  - Stylus deploy costs **~11 times more gas** than Solidity...
+  - Stylus deploy costs **~11 times more gas** than Solidity (can be optimised through [Cache Manager](https://docs.arbitrum.io/stylus/concepts/stylus-cache-manager))
   - while mint and transfer are also **~28%** and **~38%** **more expensive**, respectively
 
 This is somewhat expected, since ERC-20 contracts aren't computationally heavy (no taking advantage of Stylus).
 
 - For Ed25519 contracts:
-  - Stylus deploy costs **~40% more gas** than Solidity...
+  - Stylus deploy costs **~40% more gas** than Solidity (can be optimised through [Cache Manager](https://docs.arbitrum.io/stylus/concepts/stylus-cache-manager))
   - but for signature verification, Stylus is **~75% cheaper**
 
 This is also expected and is the main takeaway from this benchmark - that Stylus is **lot** faster when doing heavy computational tasks.
